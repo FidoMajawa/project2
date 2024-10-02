@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Details</title>
+    <link rel="stylesheet" href="songDetail.css">
+</head>
+<body>
+    <div class="song-detail-container">
+        <h1>Song Details</h1>
+        <div class="artist-image">
+            <img id="artist-image" src="" alt="Artist Image">
+        </div>
+        <div class="song-info">
+            <p><strong>Artist:</strong> <span id="artist-name"></span></p>
+            <p><strong>Song Title:</strong> <span id="song-title"></span></p>
+            <p><strong>Genre:</strong> <span id="song-genre"></span></p>
+            <p><strong>Size:</strong> <span id="song-size"></span></p>
+            <p><strong>Release Date:</strong> <span id="release-date"></span></p>
+        </div>
+        <div class="song-actions">
+            <button id="play-button">Play Song</button>
+            <a id="download-link" download><button>Download Song</button></a>
+        </div>
+    </div>
+
+    <audio id="audio-player" controls style="display:none;">
+        <source id="audio-source" src="" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Extract song details from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const artist = urlParams.get('artist');
+        const title = urlParams.get('title');
+        const genre = urlParams.get('genre');
+        const size = urlParams.get('size');
+        const date = urlParams.get('date');
+        const songSrc = urlParams.get('songSrc');
+        const imageSrc = urlParams.get('image');
+
+        // Update the page content with song details
+        document.getElementById('artist-name').textContent = artist;
+        document.getElementById('song-title').textContent = title;
+        document.getElementById('song-genre').textContent = genre;
+        document.getElementById('song-size').textContent = size;
+        document.getElementById('release-date').textContent = date;
+
+        // Update the artist image
+        document.getElementById('artist-image').src = imageSrc;
+
+        // Set the song source for playing and downloading
+        const audioPlayer = document.getElementById('audio-player');
+        const audioSource = document.getElementById('audio-source');
+        const downloadLink = document.getElementById('download-link');
+        
+        audioSource.src = songSrc;
+        downloadLink.href = songSrc;
+
+        // Play the song when the play button is clicked
+        document.getElementById('play-button').addEventListener('click', () => {
+            audioPlayer.style.display = 'block'; // Show the audio player
+            audioPlayer.play();
+        });
+    </script>
+</body>
+</html>

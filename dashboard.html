@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <h2>MUSIC</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="pages/songs.html">Songs</a></li>
+                <li><a href="pages/albums.html">Albums</a></li>
+                <li><a href="pages/artists.html">Artists</a></li>
+                <li><a href="pages/videos.html">Videos</a></li>
+                <li><a href="pages/radio.html">Radio</a></li>
+            </ul>
+        </nav>
+        <div class="playlist">
+            <h3>Your Playlist</h3>
+            <ul>
+                <li><a href="#">My Music</a></li>
+                <li><a href="#">Rock On</a></li>
+                <li><a href="#">Party Night</a></li>
+                <li><button>Create One</button></li>
+            </ul>
+        </div>
+        <div class="user-settings">
+            <p>Hi, Jonathan</p>
+            <a href="#">Settings</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1 class="head">FIDO AzRa MUSIC STORE</h1>
+        <header>
+            <input type="text" id="search-input" placeholder="Search songs, albums, or singers...">
+            <button id="search-button">Search</button> <!-- Added a button for searching -->
+            <button>Premium</button>
+        </header>
+        
+        <section class="banner">
+            <h1>Let the Music Speak!</h1>
+            <p>Discover new songs, albums, and playlists just for you</p>
+        </section>
+
+        <!-- New Releases Section -->
+        <section class="section">
+            <h3>New Releases</h3>
+        <div class="content-box new-releases">
+            <div class="music-item">
+                <img src="assets/img/kells.jpg" alt="New Release 1" 
+                    data-song="assets/songs/Kell Kay - Mayo Mayo (End Of The Road).mp3"
+                    data-artist="Kell Kay"
+                    data-title="Mayo Mayo"
+                    data-genre="Afro Pop"
+                    data-size="5 MB"
+                    data-date="2022-09-01"
+                    data-image="assets/img/kells.jpg">
+                <p>Kell Kay :
+                    Mayo Mayo
+                </p>
+            </div>
+            
+            <div class="music-item">
+                <img src="assets/img/zeze.jpg" alt="New Release 1" 
+                    data-song="assets/songs/Zeze_Kingston_-_Kusangalala_CeeNaija.com_.mp3"
+                    data-artist="ZEZE KINGSTON"
+                    data-title="Kusangalala"
+                    data-genre="Amapiano"
+                    data-size="5.23 MB"
+                    data-date="2023-08-03"
+                    data-image="assets/img/zeze.jpg">
+                <p>ZEZE :
+                    Kusangalala</p>
+            </div>
+        </div>
+        </section>
+        
+        <!-- Trending Songs Section -->
+        <section class="section">
+            <h3>Trending Songs</h3>
+            <div class="content-box trending-songs">
+                <div class="music-item">
+                    <img src="assets/img/piksy.jpg" alt="trending 1" 
+                        data-song="assets/songs/Piksy - Anana (Prod. Don Foxy).mp3"
+                        data-artist="Piksy"
+                        data-title="ANANA"
+                        data-genre="Hip Hop"
+                        data-size="5.23 MB"
+                        data-date="2022-04-07"
+                        data-image="assets/img/piksy.jpg">
+                    <p>Piksy :
+                        Anana
+                    </p>
+                </div>
+
+               
+                <div class="music-item">
+                    <img src="assets/img/gata.jpg" alt="New Release 1" 
+                        data-song="assets/songs/Achina Gattah Ase - We Outside (Prod by Jillz).mp3"
+                        data-artist="Anchina Gatta"
+                        data-title="We outside"
+                        data-genre="Rap"
+                        data-size="5.10 MB"
+                        data-date="2023-09-01"
+                        data-image="assets/img/gata.jpg">
+                    <p>Anchina Gatta :
+                        We Out Side</p>
+                </div>
+                <!-- Add more trending song items here -->
+            </div>
+        </section>
+        
+        <!-- Top 20 Songs Section -->
+        <section class="section">
+            <h3>Top 20 Songs</h3>
+            <div class="content-box top-20-songs">
+                <div class="music-item">
+                    <img src="assets/img/malinga.jpg" alt="New Release 1" 
+                        data-song="assets/songs/Malinga - Arasi (Prod. Dj Sley).mp3"
+                        data-artist="Malinga Mafia"
+                        data-title="ARAS"
+                        data-genre="Afro Dancelhall"
+                        data-size="4.23 MB"
+                        data-date="2023-04-07"
+                        data-image="assets/img/malinga.jpg">
+                    <p>Malinga Mafia :
+                        Aras
+                    </p>
+                </div>
+
+                <div class="music-item">
+                    <img src="assets/img/morgansean.jpg" alt="New Release 1" 
+                        data-song="assets/songs/Sean Morgan  - Young & Free (Prod. Cuff B) .mp3"
+                        data-artist="Sean Morgan"
+                        data-title="Young and free"
+                        data-genre="Dancelhall"
+                        data-size="4.43 MB"
+                        data-date="2023-11-07"
+                        data-image="assets/img/morgansean.jpg">
+                    <p>Sean Morgan :
+                        Young and Free
+                    </p>
+                </div>
+                <!-- Add more top 20 items here -->
+            </div>
+        </section>
+        
+       
+    </div>
+
+    <script>
+        // Get all music-item images
+        const musicItems = document.querySelectorAll('.music-item img');
+    
+        // Add a click event listener to each music item
+        musicItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Get song details from data attributes
+                const artist = item.getAttribute('data-artist');
+                const title = item.getAttribute('data-title');
+                const genre = item.getAttribute('data-genre');
+                const size = item.getAttribute('data-size');
+                const date = item.getAttribute('data-date');
+                const songSrc = item.getAttribute('data-song');
+                const imageSrc = item.getAttribute('data-image');
+    
+                // Redirect to the song detail page with the song details as URL parameters
+                window.location.href = `songDetail.html?artist=${artist}&title=${title}&genre=${genre}&size=${size}&date=${date}&songSrc=${encodeURIComponent(songSrc)}&image=${encodeURIComponent(imageSrc)}`;
+            });
+        });
+    
+        // Search Functionality
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-button');
+    
+        searchButton.addEventListener('click', () => {
+            const searchTerm = searchInput.value.toLowerCase(); // Get the input value
+            const musicItems = document.querySelectorAll('.music-item'); // Get all music items
+    
+            musicItems.forEach(item => {
+                const title = item.querySelector('p').textContent.toLowerCase(); // Get the title of each item
+    
+                if (title.includes(searchTerm)) {
+                    item.style.display = ''; // Show item if it matches the search term
+                } else {
+                    item.style.display = 'none'; // Hide item if it does not match
+                }
+            });
+        });
+    
+        // Optional: Add event listener for Enter key in the search input
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchButton.click(); // Trigger the search button click
+            }
+        });
+    </script>
+    
+    
+</body>
+</html>

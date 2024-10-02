@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.song-detail-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.artist-image img {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.song-info p {
+    margin: 10px 0;
+}
+
+.song-actions {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #1db954;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #17a34a;
+}
+
+/* Hover effect for images */
+.music-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Add transition for smooth effect */
+    border-radius: 10px;
+}
+
+/* Hover state for images */
+.music-item img:hover {
+    transform: scale(1.1); /* Enlarge the image on hover */
+    opacity: 0.8; /* Reduce opacity to 80% */
+    cursor: pointer; /* Change the cursor to pointer on hover */
+}
+
+/* You can also add a box-shadow for a pop effect on hover */
+.music-item img:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Shadow for hover effect */
+}
+
